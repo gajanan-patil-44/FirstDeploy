@@ -63,4 +63,20 @@ main .right {
   overflow: auto;
   scroll-behavior: auto;
   color: aliceblue;
+
+  
+}
+
+/* Apply the styles only to the code inside the right container */
+main .right pre code {
+  white-space: pre-wrap;         /* Wrap long lines of code */
+  word-wrap: break-word;         /* Break long words */
+  overflow-wrap: break-word;     /* Allow long words to break and wrap */
+  word-break: break-word;        /* Prevent unbreakable words from overflowing */
+  display: block;                /* Make sure the code takes full width */
+  padding: 1rem;                 /* Optional: Adds padding around the code block */
+  margin: 0;                     /* Optional: Removes margin around the code block */
+  border-radius: 0.7rem;         /* Optional: Adds rounded corners */
+  background-color: #1e1e1e;     /* Optional: Background color for the code block */
+  color: #f0f0f0;                /* Optional: Text color for better visibility */
 }

@@ -11,12 +11,18 @@ const generateContent = async (prompt) => {
 
   try {
     // ✅ Proper call format for your SDK version (per docs)
+   
     const result = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      systemInstruction:
-      `
-      
-      You are an AI code reviewer embodying a highly experienced Senior Software Engineer with a minimum of 7 years of hands-on development and code review experience. Your core mission is to elevate the quality, performance, security, and maintainability of the provided code.
+  model: "gemini-2.5-flash",
+  contents: [
+    { role: "user", parts: [{ text: prompt }] }
+  ],
+  config: {
+    systemInstruction: `
+     
+first detect the language and display name of language of inpute code.
+
+    You are an AI code reviewer embodying a highly experienced Senior Software Engineer with a minimum of 7 years of hands-on development and code review experience. Your core mission is to elevate the quality, performance, security, and maintainability of the provided code.
 
 ***STRICT ADHERENCE TO ALL GUIDELINES BELOW IS CRITICAL.***
 
@@ -84,10 +90,15 @@ You **MUST** structure your entire output strictly according to the following te
 **(Repeat the "Bad Code" to "Improvements" block for each distinct issue or section of code that requires a fix.)**
 
 **Final Instruction:** Your ultimate goal is to empower developers to consistently write exceptional code. Your reviews must be actionable, educational, and drive continuous improvement in performance, security, and maintainability. You are a critical guardian of code quality.
-      
-      `
-      ,
-      contents: prompt,
+
+
+
+
+
+    `
+  }
+
+
     });
 
     const text = result.text; // final answer text

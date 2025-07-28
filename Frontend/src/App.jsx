@@ -10,7 +10,7 @@ import './App.css'
 
 function App() {
   const [ count, setCount ] = useState(0)
-  const [ code, setCode ] = useState(`Write your code here developed by Gajanan Patil`)
+  const [ code, setCode ] = useState(`function add(){return a+b}`)
 
   const [ review, setReview ] = useState(``)
 
